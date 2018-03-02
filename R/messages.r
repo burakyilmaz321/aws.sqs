@@ -63,7 +63,7 @@ receive_msg <- function(queue, attributes = NULL, n = 1, timeout = NULL, wait = 
     if (inherits(out, "aws-error") || inherits(out, "unknown")) {
         return(out)
     }
-    out2 <- out$ReceiveMessageResponse$ReceiveMessageResult$messages
+    out2 <- out$ReceiveMessageResponse$ReceiveMessageResult$Message
     if (!length(out2)) {
         out2 <- data.frame(Attributes = character(0),
                            Body = character(0),
